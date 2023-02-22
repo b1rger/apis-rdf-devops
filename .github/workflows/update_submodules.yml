@@ -25,13 +25,12 @@ jobs:
     # Checkout the repository to the GitHub Actions runner
     - name: Checkout
       uses: actions/checkout@v2
-      with:
-        submodules: true
 
     # Update references
     - name: Git Sumbodule Update
       run: |
         git pull --recurse-submodules
+        git submodule update --init --recursive
         git submodule update --remote --recursive
 
     - name: Commit update
